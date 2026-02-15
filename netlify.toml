@@ -1,0 +1,11 @@
+[build]
+  publish = "."
+  command = "echo 'PHP site'"
+
+[build.environment]
+  PHP_VERSION = "8.3"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.php"
+  status = 200
