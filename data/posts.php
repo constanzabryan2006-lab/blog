@@ -61,7 +61,7 @@ $posts = [
     [
     'id' => 'francisco1',
     'titulo' => 'De Sistemas Informáticos a Ciencias de la Computación: mi experiencia con riego automatizado y control de empleados',
-    'autor' => 'Francisco Alexander Tiznado Gimenez',
+    'autor' => 'Francisco Alexander Ulloa Tiznado',
     'autor_id' => 'francisco',
     'fecha' => '14 Febrero 2026',
     'categoria' => 'Proyectos y Tecnología',
