@@ -36,7 +36,7 @@ $integrantes = [
     ],
     [
     'id' => 'francisco',
-    'nombre' => 'Francisco Alexander Tiznado Ulloa',
+    'nombre' => 'Francisco Alexander Ulloa Tiznado',
     'rol' => 'Estudiante de Ciencias de la Computación',
     'imagen' => 'assets/img/frank.jpg',
     'linkedin' => '#',
