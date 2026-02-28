@@ -21,7 +21,7 @@
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="fw-bold">Nuestro Equipo</h2>
-            <p class="text-secondary">5 profesionales apasionados por la tecnología</p>
+            <p class="text-secondary">4 profesionales apasionados por la tecnología</p>
         </div>
         
         <div class="row g-4 justify-content-center">

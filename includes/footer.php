@@ -5,7 +5,7 @@
                 <p class="mb-0">&copy; 2026 Blog Profesional - Equipo 5</p>
             </div>
             <div class="col-md-6 text-center text-md-end">
-                <small class="text-white-50">Ana · Carlos · María · Juan · Lucía</small>
+                <small class="text-white-50">Brayan· Guillermo · Francisco · Rafael</small>
             </div>
         </div>
     </div>
