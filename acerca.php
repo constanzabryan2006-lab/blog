@@ -14,7 +14,7 @@
         <!-- DESCRIPCIÓN DEL EQUIPO -->
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 text-center">
-                <p class="fs-5">Somos 5 desarrolladores y diseñadores apasionados por la tecnología. Creamos soluciones digitales funcionales, atractivas y escalables. ¿Tienes un proyecto? <a href="contacto.php" class="text-decoration-none">Contáctanos</a>.</p>
+                <p class="fs-5">Somos 4 desarrolladores y diseñadores apasionados por la tecnología. Creamos soluciones digitales funcionales, atractivas y escalables. ¿Tienes un proyecto? <a href="contacto.php" class="text-decoration-none">Contáctanos</a>.</p>
             </div>
         </div>
 
