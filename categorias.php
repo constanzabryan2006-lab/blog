@@ -33,36 +33,64 @@
             <?php endforeach; ?>
         </div>
 
-        <!-- POSTS POR CATEGORÍA (COLLAPSE) -->
-        <?php foreach ($categorias as $categoria => $total): ?>
-        <div class="collapse mt-4" id="cat-<?= strtolower(str_replace(' ', '', $categoria)) ?>">
-            <div class="bg-light p-4 rounded">
-                <h2 class="fw-bold mb-4"><?= $categoria ?></h2>
-                <div class="row g-4">
-                    <?php foreach ($posts as $post): ?>
-                        <?php if ($post['categoria'] === $categoria): ?>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modal<?= preg_replace('/[^a-zA-Z0-9]/', '', $post['id']) ?>" style="cursor: pointer;">
-                                <div class="card-body p-4">
-                                    <span class="badge bg-secondary mb-2"><?= $post['autor'] ?></span>
-                                    <h5 class="card-title fw-bold"><?= $post['titulo'] ?></h5>
-                                    <p class="card-text text-secondary small"><?= $post['resumen'] ?></p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text-muted"><?= $post['fecha'] ?></small>
-                                        <span class="btn btn-outline-dark btn-sm">Leer más</span>
+        <!-- POSTS POR CATEGORÍA (COLLAPSE) - CON COMPORTAMIENTO ACORDEÓN -->
+        <div id="accordionCategorias">
+            <?php foreach ($categorias as $categoria => $total): ?>
+            <div class="collapse mt-4" id="cat-<?= strtolower(str_replace(' ', '', $categoria)) ?>" data-bs-parent="#accordionCategorias">
+                <div class="bg-light p-4 rounded">
+                    <h2 class="fw-bold mb-4"><?= $categoria ?></h2>
+                    <div class="row g-4">
+                        <?php foreach ($posts as $post): ?>
+                            <?php if ($post['categoria'] === $categoria): ?>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modal<?= preg_replace('/[^a-zA-Z0-9]/', '', $post['id']) ?>" style="cursor: pointer;">
+                                    <div class="card-body p-4">
+                                        <span class="badge bg-secondary mb-2"><?= $post['autor'] ?></span>
+                                        <h5 class="card-title fw-bold"><?= $post['titulo'] ?></h5>
+                                        <p class="card-text text-secondary small"><?= $post['resumen'] ?></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><?= $post['fecha'] ?></small>
+                                            <span class="btn btn-outline-dark btn-sm">Leer más</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- MODALES DE POSTS - MODIFICADOS PARA QUE SOLO SE CIERREN CON LA X -->
+        <?php foreach ($posts as $post): 
+            $modalId = 'modal' . preg_replace('/[^a-zA-Z0-9]/', '', $post['id']);
+        ?>
+        <div class="modal fade" id="<?= $modalId ?>" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark text-white">
+                        <h5 class="modal-title"><?= $post['titulo'] ?></h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <span class="badge bg-secondary"><?= $post['autor'] ?></span>
+                            <span class="badge bg-primary"><?= $post['categoria'] ?></span>
+                            <small class="text-muted ms-2"><?= $post['fecha'] ?></small>
                         </div>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
+                        <hr>
+                        <p class="lead"><?= $post['resumen'] ?></p>
+                        <p><?= $post['contenido'] ?? 'Contenido completo del artículo...' ?></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
             </div>
         </div>
         <?php endforeach; ?>
-
-        <!-- MODALES DE POSTS -->
-        <?= generarModalesPosts($posts) ?>
 
     </div>
 </section>
